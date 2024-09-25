@@ -1,4 +1,4 @@
-# EASY PROBLEMS [7/28 Complete]
+# EASY PROBLEMS [9/28 Complete]
 
 def two_sum(nums, target):
     mydict = {}
@@ -64,3 +64,16 @@ def countBits(n):
     for i in range(n + 1):
         output.append(bin(i).count("1")) 
     return output
+
+def isValid(s):
+    mydict = {"]":"[", ")":"(", "}":"{"} 
+    stack = []
+    for i in s:
+        if i in mydict and stack and stack[-1] == mydict[i]:
+            stack.pop() 
+        else:
+            stack.append(i) 
+    return len(stack) == 0 
+
+def isAnagram(s, t):
+    return sorted(s) == sorted(t) 
