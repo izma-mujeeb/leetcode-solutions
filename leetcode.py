@@ -28,17 +28,14 @@ def missing_number(nums):
     return -1 
 
 def plus_one(digits):
-    last = len(digits) - 1
-    if digits[last] != 9:
-        digits[last] += 1
+    length = len(digits) - 1
+    while digits[length] == 9:
+        digits[length] = 0
+        length -= 1
+    if length >= 0:
+        digits[length] = digits[length] + 1 
         return digits 
-    while digits[last] == 9:
-        digits[last] = 0
-        last -= 1
-    if digits[last] == 0:
-        return [1] + digits 
-    digits[last] += 1    
-    return digits 
+    return [1] + digits
 
 def happy_number(n):
     hset = set() 
